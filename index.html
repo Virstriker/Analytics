@@ -45,6 +45,23 @@
     width: 100%;
     height: auto;
 }
+/* Add these styles to your existing styles.css */
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    background-color: #3498db;
+    padding: 15px 30px;
+    border-radius: 8px;
+    z-index: 1;
+}
+
 
 /* You can add more styles based on your design preferences */
 
@@ -59,6 +76,7 @@
             <source src="./vdo.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <div class="play-button" onclick="startVideo()">Start</div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -86,6 +104,43 @@
 
     // You can add more event listeners for other controls (volume, seek, etc.)
 });
+function startVideo() {
+    var video = document.getElementById('myVideo');
+    var playButton = document.querySelector('.play-button');
+
+    // Hide the play button
+    playButton.style.display = 'none';
+
+    // Start the video playback
+    video.play();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    var video = document.getElementById('myVideo');
+
+    // Add event listener to play/pause button
+    video.addEventListener('click', function () {
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    });
+
+    // Update play/pause button based on video state
+    video.addEventListener('play', function () {
+        // Update play/pause button or add any other logic you need
+        console.log('Video is playing');
+    });
+
+    video.addEventListener('pause', function () {
+        // Update play/pause button or add any other logic you need
+        console.log('Video is paused');
+    });
+
+    // You can add more event listeners for other controls (volume, seek, etc.)
+});
+
 
     </script>
 </body>
