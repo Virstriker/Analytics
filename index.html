@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KBVV4EPMKW"></script>
-    <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WHFKMCX2');
-    
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-KBVV4EPMKW');
 
-    </script>
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WHFKMCX2');</script>
     <!-- End Google Tag Manager -->
-<!-- Google tag (gtag.js) -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Video Player</title>
@@ -25,51 +20,52 @@
 </head>
 <style>
     body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-}
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+    }
 
-.video-container {
-    position: relative;
-    overflow: hidden;
-    max-width: 800px;
-}
+    .video-container {
+        position: relative;
+        overflow: hidden;
+        max-width: 800px;
+    }
 
-#myVideo {
-    width: 100%;
-    height: auto;
-}
-/* Add these styles to your existing styles.css */
+    #myVideo {
+        width: 100%;
+        height: auto;
+    }
 
-.play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-    background-color: #3498db;
-    padding: 15px 30px;
-    border-radius: 8px;
-    z-index: 1;
-}
+    /* Add these styles to your existing styles.css */
+
+    .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+        cursor: pointer;
+        background-color: #3498db;
+        padding: 15px 30px;
+        border-radius: 8px;
+        z-index: 1;
+    }
 
 
-/* You can add more styles based on your design preferences */
-
+    /* You can add more styles based on your design preferences */
 </style>
+
 <body>
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHFKMCX2"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHFKMCX2" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div class="video-container">
         <video id="myVideo" width="800" height="450" controls>
@@ -80,68 +76,69 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-    var video = document.getElementById('myVideo');
+            var video = document.getElementById('myVideo');
 
-    // Add event listener to play/pause button
-    video.addEventListener('click', function () {
-        if (video.paused) {
+            // Add event listener to play/pause button
+            video.addEventListener('click', function () {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+
+            // Update play/pause button based on video state
+            video.addEventListener('play', function () {
+                // Update play/pause button or add any other logic you need
+                console.log('Video is playing');
+            });
+
+            video.addEventListener('pause', function () {
+                // Update play/pause button or add any other logic you need
+                console.log('Video is paused');
+            });
+
+            // You can add more event listeners for other controls (volume, seek, etc.)
+        });
+        function startVideo() {
+            var video = document.getElementById('myVideo');
+            var playButton = document.querySelector('.play-button');
+
+            // Hide the play button
+            playButton.style.display = 'none';
+
+            // Start the video playback
             video.play();
-        } else {
-            video.pause();
         }
-    });
 
-    // Update play/pause button based on video state
-    video.addEventListener('play', function () {
-        // Update play/pause button or add any other logic you need
-        console.log('Video is playing');
-    });
+        document.addEventListener('DOMContentLoaded', function () {
+            var video = document.getElementById('myVideo');
 
-    video.addEventListener('pause', function () {
-        // Update play/pause button or add any other logic you need
-        console.log('Video is paused');
-    });
+            // Add event listener to play/pause button
+            video.addEventListener('click', function () {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
 
-    // You can add more event listeners for other controls (volume, seek, etc.)
-});
-function startVideo() {
-    var video = document.getElementById('myVideo');
-    var playButton = document.querySelector('.play-button');
+            // Update play/pause button based on video state
+            video.addEventListener('play', function () {
+                // Update play/pause button or add any other logic you need
+                console.log('Video is playing');
+            });
 
-    // Hide the play button
-    playButton.style.display = 'none';
+            video.addEventListener('pause', function () {
+                // Update play/pause button or add any other logic you need
+                console.log('Video is paused');
+            });
 
-    // Start the video playback
-    video.play();
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    var video = document.getElementById('myVideo');
-
-    // Add event listener to play/pause button
-    video.addEventListener('click', function () {
-        if (video.paused) {
-            video.play();
-        } else {
-            video.pause();
-        }
-    });
-
-    // Update play/pause button based on video state
-    video.addEventListener('play', function () {
-        // Update play/pause button or add any other logic you need
-        console.log('Video is playing');
-    });
-
-    video.addEventListener('pause', function () {
-        // Update play/pause button or add any other logic you need
-        console.log('Video is paused');
-    });
-
-    // You can add more event listeners for other controls (volume, seek, etc.)
-});
+            // You can add more event listeners for other controls (volume, seek, etc.)
+        });
 
 
     </script>
 </body>
+
 </html>
