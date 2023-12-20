@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.video-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 800px;
+}
+
+#myVideo {
+    width: 100%;
+    height: auto;
+}
+
+/* You can add more styles based on your design preferences */
+
+</style>
+<body>
+    <div class="video-container">
+        <video id="myVideo" width="800" height="450" controls>
+            <source src="./vdo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    var video = document.getElementById('myVideo');
+
+    // Add event listener to play/pause button
+    video.addEventListener('click', function () {
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    });
+
+    // Update play/pause button based on video state
+    video.addEventListener('play', function () {
+        // Update play/pause button or add any other logic you need
+        console.log('Video is playing');
+    });
+
+    video.addEventListener('pause', function () {
+        // Update play/pause button or add any other logic you need
+        console.log('Video is paused');
+    });
+
+    // You can add more event listeners for other controls (volume, seek, etc.)
+});
+
+    </script>
+</body>
+</html>
